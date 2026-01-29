@@ -19,6 +19,13 @@ test("Verify Playwright Locators", async ({page}) => {
     await expect(text).toBeVisible();
     //or
     await expect(page.getByText("Welcome to our store")).toBeVisible();
+    //original method is already case insensitive but to make sure we can do this
+    await expect(page.getByText(/welcome to our store/i)).toBeVisible();
+
+    //getByRole() - Locating By Role (not an attribute but can some times be)
+    //Locate button, checkboxes, headings, links, lists, tables, etc by its ARIA role
+    //Preferred for interactive elements
+
     
 
 })

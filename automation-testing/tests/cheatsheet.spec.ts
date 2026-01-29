@@ -23,4 +23,6 @@ test('Cheatsheet Example', async ({ page }) => {
     //Finds the switch input using its class and clicks it
      await page.locator('.oxd-switch-input').click();
 
+     
+
 });

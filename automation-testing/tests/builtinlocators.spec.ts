@@ -25,6 +25,10 @@ test("Verify Playwright Locators", async ({page}) => {
     //getByRole() - Locating By Role (not an attribute but can some times be)
     //Locate button, checkboxes, headings, links, lists, tables, etc by its ARIA role
     //Preferred for interactive elements
+                           //role        name
+    await page.getByRole("link", {name: "Register"}).click();
+    //can also use getByText
+    await expect(page.getByRole("heading", {name: "Register"})).toBeVisible();
 
     
 

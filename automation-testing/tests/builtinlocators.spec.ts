@@ -30,6 +30,22 @@ test("Verify Playwright Locators", async ({page}) => {
     //can also use getByText
     await expect(page.getByRole("heading", {name: "Register"})).toBeVisible();
 
-    
+    //getByLabel() to locate form fields associated with a label element
+    await page.getByLabel('First name:').fill('Tom');
+    await page.getByLabel('Last name:').fill('Smith');
+    await page.getByLabel('Email:').fill('TSmith@gmail.com');
+
+    //getByPlaceholder() to locate input fields by their placeholder text
+    await page.getByPlaceholder('Search store').fill('phone');
+
+    //getByTitle() to locate elements by their title attribute
+    const link:Locator = page.getByTitle("Home page link");
+    expect(link).toHaveText("Home");
+    //or
+    await expect(page.getByTitle("Home page link")).toHaveText("Home");
+
+    //getByTestId() to locate elements by data-testid attribute
+    await page.getByTestId('directions').click();
+
 
 })
